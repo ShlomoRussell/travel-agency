@@ -12,4 +12,4 @@
 - Angular
 - Angular Material
 - [Rest Countries Api](https://restcountries.com/)
-- - Lot's of love 
+- Lot's of love 
