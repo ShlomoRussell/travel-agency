@@ -1,1 +1,12 @@
-<p>vacations works!</p>
+<div >
+  <mat-card *ngFor="let vacation of vacations">
+    <mat-card-header>
+      <mat-card-title-group>
+        <mat-card-title>{{ vacation.country }}</mat-card-title>
+        <mat-card-subtitle>מ {{ vacation.startDate | date }}</mat-card-subtitle>
+        <mat-card-subtitle>עד {{ vacation.endDate | date }}</mat-card-subtitle>
+      </mat-card-title-group>
+    </mat-card-header>
+    <mat-card-content>{{ vacation.notes }}</mat-card-content>
+  </mat-card>
+</div>

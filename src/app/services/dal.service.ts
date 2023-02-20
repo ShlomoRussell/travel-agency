@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { Vacation } from '../interfaces/vacation';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DalService {
-
-  constructor() { }
+  public vacationsList = new BehaviorSubject<Vacation[]>([]);
+  constructor() {}
 }
