@@ -9,6 +9,6 @@
 
 
 **Written using:**
-Angular
-Angular Material
-[Rest Countries Api](https://restcountries.com/)
+-Angular
+-Angular Material
+-[Rest Countries Api](https://restcountries.com/)
