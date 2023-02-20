@@ -1,25 +1,7 @@
-/* app-add-vacation,app-vacations {
-  height: 100%;
-  width: 50%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
 
 
-app-vacations {
-  left: 0;
-  background-color: #111;
-}
 
-app-add-vacation {
-  right: 0;
-  background-color: red;
-}
 
-*/
 /* If you want the content centered horizontally and vertically */
 .centered {
   position: absolute;
