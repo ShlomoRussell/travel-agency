@@ -1,0 +1,54 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <!-- input to receive the desired country with autocomplete -->
+  <mat-form-field appearance="fill">
+    <mat-label>מדינות</mat-label>
+    <input
+      type="text"
+      matInput
+      formControlName="country"
+      [matAutocomplete]="auto"
+      #countryInput
+    />
+    <mat-autocomplete autoActiveFirstOption #auto>
+      <mat-option
+        *ngFor="let option of filteredCountries | async"
+        [value]="option"
+      >
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <br />
+  <!-- date input for the start date of the vacation -->
+  <mat-form-field appearance="fill">
+    <mat-label>תאריך מ</mat-label>
+    <input matInput [matDatepicker]="startPicker" formControlName="startDate" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle
+      matIconSuffix
+      [for]="startPicker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #startPicker></mat-datepicker>
+  </mat-form-field>
+
+  <!-- date input for the end date of the vacation -->
+  <mat-form-field appearance="fill">
+    <mat-label>תאריך עד</mat-label>
+    <input matInput [matDatepicker]="endPicker" formControlName="endDate" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle
+      matIconSuffix
+      [for]="endPicker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #endPicker></mat-datepicker>
+  </mat-form-field>
+
+  <!-- input for any note the user wants to leave for the vacation -->
+  <mat-form-field appearance="fill">
+    <mat-label>הערות</mat-label>
+    <textarea matInput formControlName="notes"></textarea>
+  </mat-form-field>
+  <br />
+  <button type="submit" mat-raised-button>שלח</button>
+</form>
