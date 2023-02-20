@@ -4,7 +4,7 @@
 
 
 1. Plan your vacations 
-2. Write an itenerary
+2. Write an itinerary
 3. Keep track of your travel plans whatever they may be :)
 
 
