@@ -50,5 +50,6 @@
     <textarea matInput formControlName="notes"></textarea>
   </mat-form-field>
   <br />
-  <button type="submit" mat-raised-button>שלח</button>
+  <!-- submit will only work if form is valid -->
+  <button type="submit" [disabled]="!form.valid" mat-raised-button>שלח</button>
 </form>
