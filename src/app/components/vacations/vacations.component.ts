@@ -10,12 +10,12 @@ import { DalService } from 'src/app/services/dal.service';
 })
 export class VacationsComponent implements OnInit, OnDestroy {
   public vacations!: Vacation[];
-  private subscriptions!: Subscription;
+  private subscriptions: Subscription[] = [];
 
   constructor(private dal: DalService) {}
 
   ngOnInit(): void {
-    this.subscriptions.add(
+    this.subscriptions.push(
       this.dal.vacationsList
         .asObservable()
         .subscribe((res) => (this.vacations = res))
@@ -23,6 +23,6 @@ export class VacationsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
+    this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
 }

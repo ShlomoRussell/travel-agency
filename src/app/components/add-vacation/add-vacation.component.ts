@@ -24,7 +24,7 @@ export class AddVacationComponent implements OnInit, OnDestroy {
   public countries: string[] = [];
   public filteredCountries!: Observable<string[]>;
   private vacation!: Vacation;
-  private subscriptions!: Subscription;
+  private subscriptions: Subscription[] = [];
 
   constructor(
     private httpService: HttpService,
@@ -36,10 +36,10 @@ export class AddVacationComponent implements OnInit, OnDestroy {
     // set the date object to hebrew
     this.dateAdapter.setLocale('he');
 
-    // add all subcriptions to subscriptions in order to unscribe in OnDestroy
+    // push subcriptions into subscriptions array in order to unscribe OnDestroy
 
     // fetch countries fom api and map over them to vet just the name in the countries array
-    this.subscriptions.add(
+    this.subscriptions.push(
       this.httpService.getCountryNames().subscribe((res) => {
         this.countries = res.map(({ name }) => name.common);
 
@@ -52,7 +52,7 @@ export class AddVacationComponent implements OnInit, OnDestroy {
     );
 
     //set "this.vacation" on any value change from form in order to send it when submitting
-    this.subscriptions.add(
+    this.subscriptions.push(
       this.form.valueChanges.subscribe(
         (res) =>
           (this.vacation = {
@@ -66,7 +66,7 @@ export class AddVacationComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
+    this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
 
   // filter through countries array to give autocomplete
