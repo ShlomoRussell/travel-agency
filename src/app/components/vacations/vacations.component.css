@@ -1,5 +1,6 @@
 div {
   margin: 30px;
+  width: auto;
 }
 
 mat-card {
@@ -7,8 +8,12 @@ mat-card {
 }
 
 @media (max-width: 800px) {
-mat-card{
-  width:75%;
-  margin:auto;
-}
+  div {
+    width: 100%;
+    padding: 10px;
+  }
+  mat-card {
+    width: 75%;
+    margin: auto;
+  }
 }

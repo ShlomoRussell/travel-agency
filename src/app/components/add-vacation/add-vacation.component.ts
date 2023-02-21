@@ -41,7 +41,7 @@ export class AddVacationComponent implements OnInit, OnDestroy {
     // fetch countries fom api and map over them to vet just the name in the countries array
     this.subscriptions.push(
       this.httpService.getCountryNames().subscribe((res) => {
-        this.countries = res.map(({ name }) => name.common);
+        this.countries = res.map(({ name }) => name.common).sort();
 
         // initialize filteredCountries array and pipe the changes from the user for autocomplete
         this.filteredCountries = this.form.controls.country.valueChanges.pipe(
