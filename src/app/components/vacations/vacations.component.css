@@ -5,3 +5,10 @@ div {
 mat-card {
   margin: 5px 0px;
 }
+
+@media (max-width: 800px) {
+mat-card{
+  width:75%;
+  margin:auto;
+}
+}
